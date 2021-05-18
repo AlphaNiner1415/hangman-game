@@ -1,6 +1,7 @@
 
-import classes from "./App.css";
+
 import React, { useState } from 'react';
+import classes from "./App.module.css";
 import LetterSection from './components/LetterSection/LetterSection';
 import DashWord from './components/DashWord/DashWord';
 
@@ -20,16 +21,23 @@ function App() {
             setWrongAnswers(prevNum => prevNum + 1);
         }
     }
+    const clearText = () => {
+        setCurrentGuess("");
+        setWrongAnswers(0);
+    }
     return (
         <div className={classes.App}>
             <div className={"container my-3"}>
                 <p>Hello World</p>
-
-                {wrongAnswers}
+                <button className="btn btn-primary" onClick={clearText}>
+                    Clear
+                </button>
+                <p>{wrongAnswers}</p>
             </div>
-            <div></div>
-            <DashWord word={"Hello"} lettersToDisplay={currentGuess} />
-            <LetterSection handleClick={handleClick} />
+            <div className={classes.BottomPart}>
+                <DashWord word={"Hello"} lettersToDisplay={currentGuess} />
+                <LetterSection handleClick={handleClick} />
+            </div>
         </div>
     );
 }
