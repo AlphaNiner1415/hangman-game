@@ -1,0 +1,12 @@
+.Dash {
+    border-bottom: 2px solid black;
+    width: 2rem !important;
+    display: inline-block;
+    color: transparent;
+    margin: 0px 0.25rem;
+}
+
+.DashWithWord {
+    color: black;
+    text-align: center;
+}
